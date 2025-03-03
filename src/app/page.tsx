@@ -12,10 +12,8 @@ import { motion } from "framer-motion";
 
 export default function SecretLetter() {
   const [answer, setAnswer] = useState("");
-  // const [answer2, setAnswer2] = useState("");
   const [isCorrect1, setIsCorrect1] = useState(false);
   const [isCorrect2, setIsCorrect2] = useState(false);
-  // const correctAnswer = "solecito"; // Change this to your desired answer
 
   // Check answer for the first question and set isCorrect1
   const handleSubmitFirst = () => {
@@ -51,15 +49,32 @@ export default function SecretLetter() {
         alignItems: "center",
         justifyContent: "center",
         height: "100vh",
+        padding: "0 16px", // Added padding for mobile screens
+        boxSizing: "border-box", // To make sure padding doesn't cause overflow
       }}
     >
       {!isCorrect1 ? (
         <Card
-          sx={{ padding: 4, maxWidth: 400, textAlign: "center", boxShadow: 3 }}
+          sx={{
+            padding: 4,
+            maxWidth: "100%", // Make the card width responsive
+            width: "100%",
+            textAlign: "center",
+            boxShadow: 3,
+            marginTop: 2,
+            "@media (max-width: 600px)": {
+              maxWidth: "90%", // For mobile screens, reduce the card width
+            },
+          }}
         >
           <CardContent>
-            <Typography variant="h5">🔒 Answer this question 🔒</Typography>
-            <Typography variant="body1" sx={{ marginTop: 2 }}>
+            <Typography variant="h5" sx={{ fontSize: { xs: "1.2rem", sm: "1.5rem" } }}>
+              🔒 Answer this question 🔒
+            </Typography>
+            <Typography
+              variant="body1"
+              sx={{ marginTop: 2, fontSize: { xs: "1rem", sm: "1.2rem" } }}
+            >
               What is my nickname?
             </Typography>
             <TextField
@@ -68,7 +83,11 @@ export default function SecretLetter() {
               variant="outlined"
               value={answer}
               onChange={(e) => setAnswer(e.target.value)}
-              sx={{ marginTop: 2 }}
+              sx={{
+                marginTop: 2,
+                "& .MuiInputLabel-root": { fontSize: { xs: "0.9rem", sm: "1rem" } },
+                "& .MuiInputBase-root": { fontSize: { xs: "1rem", sm: "1.2rem" } },
+              }}
             />
             <Button
               variant="text"
@@ -82,13 +101,26 @@ export default function SecretLetter() {
         </Card>
       ) : !isCorrect2 ? (
         <Card
-          sx={{ padding: 4, maxWidth: 400, textAlign: "center", boxShadow: 3 }}
+          sx={{
+            padding: 4,
+            maxWidth: "100%", 
+            width: "100%",
+            textAlign: "center",
+            boxShadow: 3,
+            marginTop: 2,
+            "@media (max-width: 600px)": {
+              maxWidth: "90%",
+            },
+          }}
         >
           <CardContent>
-            <Typography variant="h5">
+            <Typography variant="h5" sx={{ fontSize: { xs: "1.2rem", sm: "1.5rem" } }}>
               🔒 Answer this second question 🔒
             </Typography>
-            <Typography variant="body1" sx={{ marginTop: 2 }}>
+            <Typography
+              variant="body1"
+              sx={{ marginTop: 2, fontSize: { xs: "1rem", sm: "1.2rem" } }}
+            >
               What is your nickname?
             </Typography>
             <TextField
@@ -97,7 +129,11 @@ export default function SecretLetter() {
               variant="outlined"
               value={answer}
               onChange={(e) => setAnswer(e.target.value)}
-              sx={{ marginTop: 2 }}
+              sx={{
+                marginTop: 2,
+                "& .MuiInputLabel-root": { fontSize: { xs: "0.9rem", sm: "1rem" } },
+                "& .MuiInputBase-root": { fontSize: { xs: "1rem", sm: "1.2rem" } },
+              }}
             />
             <Button
               variant="text"
@@ -118,17 +154,44 @@ export default function SecretLetter() {
           <Card
             sx={{
               padding: 4,
-              maxWidth: 500,
+              maxWidth: "100%",
+              width: "100%",
               textAlign: "center",
               boxShadow: 3,
+              "@media (max-width: 600px)": {
+                maxWidth: "90%",
+              },
             }}
           >
             <CardContent>
-              <Typography variant="h4">💌 A Special Letter for You</Typography>
-              <Typography variant="body1" sx={{ marginTop: 2 }}>
+              <Typography variant="h4" sx={{ fontSize: { xs: "1.5rem", sm: "1.8rem" } }}>
+                💌 A Special Letter for You
+              </Typography>
+              <Typography
+                variant="body1"
+                sx={{ marginTop: 2, fontSize: { xs: "1rem", sm: "1.2rem" } }}
+              >
+                
                 My dearest, You are the light of my life and the joy in my
                 heart. Every moment with you is a treasure, and I cherish you
-                more than words can say. Forever yours, ❤️
+                more than words can say. Forever yours, ❤️sssssssssssssssssssssssssssss
+                sdddddddddddddddd
+                sddddddddddddddddddddddddddd
+                dssssssssssssssssssssssss
+                dssssssssssssssssssssssssdssssssssssssssssss
+                dssssssssssssssssssssssssdsssssssss
+                asddddddddddddddd
+                dasssssssssssssssssssssssss
+                asdddddddddddddddd
+                dasssssssssssssssssssssssssdsa
+                dasasasasasasasasasasasasasas
+                dasssssssssssssssssssssssssdsaa
+                dasasasasasasasasasasasasasas
+                asddddddddddddddd
+                dsadassssss
+                dasssssssssssssssssssssssss
+                dasssssssssssssssssssssssss
+                dasssssssssssssssssssssssss
               </Typography>
             </CardContent>
           </Card>

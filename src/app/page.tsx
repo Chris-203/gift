@@ -150,6 +150,13 @@ export default function SecretLetter() {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1 }}
+          style={{
+            display: "flex",  // Ensure it's a flex container
+            justifyContent: "center", // Center content horizontally
+            alignItems: "center", // Center content vertically
+            width: "100%", // Make sure it takes full width
+            marginTop: 16, // Added margin to separate from other elements
+          }}
         >
           <Card
             sx={{

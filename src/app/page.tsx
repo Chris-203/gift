@@ -317,6 +317,7 @@ export default function SecretLetter() {
                   // alignContent: "center",
                   width: "100%",
                   height: "auto",
+                  position: "absolute",
                   // marginTop: 2,
                 }}
               >

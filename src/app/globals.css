@@ -26,8 +26,8 @@ body {
 @font-face {
   font-family: "Shine in Valentine";
   src: url("/fonts/Shine \In \Valentine.ttf") format("truetype"),
-  url("/fonts/ShineInValentine.woff2") format("woff2"),
-  url("/fonts/ShineInValentine.woff") format("woff");
+  url("/fonts/ShineinValentine.woff2") format("woff2"),
+  url("/fonts/ShineinValentine.woff") format("woff");
   font-display: swap;
 }
 

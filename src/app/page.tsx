@@ -130,7 +130,7 @@ export default function SecretLetter() {
                 value={answer}
                 onChange={(e) => setAnswer(e.target.value)}
                 sx={{
-                  width: "50%",
+                  width: "55%",
                   marginTop: 2,
                   "& .MuiOutlinedInput-root": {
                     borderRadius: "20px",
@@ -209,7 +209,7 @@ export default function SecretLetter() {
                 value={answer}
                 onChange={(e) => setAnswer(e.target.value)}
                 sx={{
-                  width: "50%",
+                  width: "55%",
                   marginTop: 2,
                   "& .MuiOutlinedInput-root": {
                     borderRadius: "20px",
@@ -335,7 +335,7 @@ export default function SecretLetter() {
                   <CardContent>
                     <Typography
                       variant="h5"
-                      sx={{ fontFamily: "'Shine in Valentine',cursive" }}
+                      sx={{ fontFamily: "'Shine in Valentine',Fresh Palm", fontWeight: "bold" }}
                     >
                       💌 Happy Monthsary💌
                     </Typography>
@@ -393,12 +393,12 @@ export default function SecretLetter() {
                     <Typography
                       variant="body1"
                       sx={{ marginTop: 2, marginLeft: -6,fontFamily: "'Shine in Valentine',cursive",
-                        fontSize: "1.2rem", }}
+                        fontSize: "1.2rem", fontWeight: "bold"}}
                     >
                       Love,
                     </Typography>
                     <Typography variant="body1" sx={{ marginTop: -0.5,fontFamily: "'Shine in Valentine',cursive",
-                        fontSize: "1.2rem", }}>
+                        fontSize: "1.2rem", fontWeight: "bold"}}>
                       Tu solecito☀️
                     </Typography>
                     <Typography variant="body1" sx={{ marginTop: 2,fontFamily: "'Fresh Palm',cursive",

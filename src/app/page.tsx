@@ -267,13 +267,13 @@ export default function SecretLetter() {
               }}
             >
               <CardContent>
-                <Typography variant="h5">
+                <Typography variant="h5" sx={{ fontFamily: "'Shine in Valentine',Fresh Palm", fontWeight: "bold" }}>
                   💌 A Heartfelt Letter for You
                 </Typography>
-                <Typography variant="body1" sx={{ marginTop: 2 }}>
+                <Typography variant="body1" sx={{ marginTop: 2, fontFamily: "'Fresh Palm',cursive", fontSize: "1.2rem" }}>
                   I loved the letter you wrote for me so I decided to do the
                   same... but with a little spin. This is my way to show how
-                  much you mean to me (y luego que no seria ovio😂 ) y la
+                  much you mean to me (y luego que no seria ovio😂) y la
                   primera cosa que pense era en forma de esto. Hope you like it
                   mi florecita preciosa❤️
                 </Typography>
@@ -322,22 +322,25 @@ export default function SecretLetter() {
               >
                 <Card
                   sx={{
-                    padding: 1,
-                    maxWidth: "80%",
-                    maxHeight: "80%",
+                    padding: 4,
+                    maxWidth: "100%",
                     textAlign: "center",
                     boxShadow: 3,
-                    overflow: "auto",
-                    // background: "white",
-                    // backdropFilter: "blur(10px)",
+                    position: "relative",
+                    // background: "rgba(0, 0, 0, 0.8)", // Black background with some transparency
+                    borderRadius: "10px", // Optional: adds rounded corners to the card
                   }}
                 >
-                  <CardContent>
+                  <CardContent
+                  sx={{
+                    maxHeight: "500px", // Set a fixed height for the card content
+                    overflowY: "auto",  // Allow scrolling within the content
+                  }}>
                     <Typography
                       variant="h5"
                       sx={{ fontFamily: "'Shine in Valentine',Fresh Palm", fontWeight: "bold" }}
                     >
-                      💌 Happy Monthsary💌
+                      💌 Happy Monthsary 💌
                     </Typography>
 
                     <Typography

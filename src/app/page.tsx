@@ -13,18 +13,24 @@ import { motion } from "framer-motion";
 
 export default function SecretLetter() {
   const [answer, setAnswer] = useState("");
-  const [isCorrect1, setIsCorrect1] = useState(true);
-  const [isCorrect2, setIsCorrect2] = useState(true);
+  const [isCorrect1, setIsCorrect1] = useState(false);
+  const [isCorrect2, setIsCorrect2] = useState(false);
   const [isTimeReached, setIsTimeReached] = useState(false);
   const [isNext, setIsNext] = useState(false);
-  const revealDate = useMemo(() => new Date("2025-03-02T00:00:00"), []);
+  const [timeLeft, setTimeLeft] = useState(0);
+  const revealDate = useMemo(() => new Date("2025-03-07T00:00:00"), []);
 
   useEffect(() => {
     const checkTime = () => {
       const now = new Date();
-      // const revealDate = new Date("2025-03-05T19:37:00");
-      if (now >= revealDate) {
+      const remainingTime = revealDate.getTime() - now.getTime();
+
+      if (remainingTime <= 0) {
         setIsTimeReached(true);
+        setTimeLeft(0);
+      } else {
+        setIsTimeReached(false);
+        setTimeLeft(remainingTime);
       }
     };
 
@@ -44,6 +50,14 @@ export default function SecretLetter() {
     // second: "2-digit",
     hour12: true, // Ensures AM/PM format
   });
+
+  const formatTime = (time: number) => {
+    const days = Math.floor(time / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((time % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((time % (1000 * 60)) / 1000);
+    return `${days}d ${hours}h ${minutes}m ${seconds}s`;
+  };
 
   const handleSubmitFirst = () => {
     if (answer.toLowerCase().includes("solecito")) {
@@ -306,65 +320,108 @@ export default function SecretLetter() {
                   // marginTop: 2,
                 }}
               >
-              <Card
-                sx={{
-                  padding: 1,
-                  maxWidth: "80%",
-                  maxHeight: "80%",
-                  textAlign: "center",
-                  boxShadow: 3,
-                  overflow: "auto",
-                  // background: "white",
-                  // backdropFilter: "blur(10px)",
-                }}
-              >
-                <CardContent>
-                  <Typography variant="h4">
-                    💌 A Special Letter for You
-                  </Typography>
+                <Card
+                  sx={{
+                    padding: 1,
+                    maxWidth: "80%",
+                    maxHeight: "80%",
+                    textAlign: "center",
+                    boxShadow: 3,
+                    overflow: "auto",
+                    // background: "white",
+                    // backdropFilter: "blur(10px)",
+                  }}
+                >
+                  <CardContent>
+                    <Typography
+                      variant="h5"
+                      sx={{ fontFamily: "'Shine in Valentine',cursive" }}
+                    >
+                      💌 Happy Monthsary💌
+                    </Typography>
 
-                  <Typography variant="body1" sx={{ marginTop: 2 }}>
-                    Mi amor, it’s been a whole month already! Can you believe
-                    it? It’s been the best month of my life. Time flies, doesn’t
-                    it? It feels like just yesterday I was being so awkward and
-                    didn’t know how to talk to you. When we first met, I never
-                    imagined you’d become so important to me. But now, I can’t
-                    imagine a life without you. You mean the world to me. I
-                    can’t stop thinking about you, mi amor. You mean the world
-                    to me, and I love making you happy, laughing, and seeing
-                    your beautiful smile. I love how smart, caring, beautiful,
-                    lovely, cute, adorable, and honest you are. I love how
-                    you’re not afraid to speak your mind. I love you so much, mi
-                    florecita preciosa. I love you more than words can express.
-                    I can’t wait for many more months to come with you. You are
-                    the light of my life and the joy in my heart. Every moment
-                    with you is a treasure, and I cherish you more than words
-                    can say. I know I haven’t asked you out in person yet, and I
-                    know we haven’t had the chance, but I will when we have some
-                    time alone or on our date in the city. I hope my feelings
-                    for you have been clear, my love. Te quiero mucho mi amor y
-                    que no se te olvide nunca. 
-                  </Typography>
-                  <Typography variant="body1" sx={{ marginTop: 2 }}>
-                  Love,
-                  </Typography>
-                  <Typography variant="body1" sx={{ marginTop: -0.5 }}>
-                  Tu solecito
-                  </Typography>
-                  <Typography variant="body1" sx={{ marginTop: 2 }}>
-                    P.S. I hope you like this little surprise. I love you so
-                    much, mi florecita preciosa❤️
-                  </Typography>
-                </CardContent>
-              </Card>
+                    <Typography
+                      variant="body1"
+                      sx={{
+                        marginTop: 2,
+                        fontFamily: "'Fresh Palm',cursive",
+                        fontSize: "1.2rem",
+                      }}
+                    >
+                      Mi amor😊❤️!! it’s been a whole month already! Can you
+                      believe it? a sido el mejor mes de mi vida. Time flies,
+                      doesn’t it? It feels like just yesterday I was being so
+                      awkward and didn’t know how to talk to you. When we first
+                      met, Nunca imagine que te iba a conocer y que ibas a ser
+                      tan importante para mi😊❤️Pero ahora, no puedo imaginar una
+                      vida sin ti. Eres mi mundo🌎
+                      <Typography variant="body1" sx={{ marginTop: 2,fontFamily: "'Fresh Palm',cursive",
+                        fontSize: "1.2rem", }}>
+                        I can’t stop thinking about you, mi amor. You mean the
+                        world to me, and I love making you happy, laughing, and
+                        seeing your beautiful smile😊 I love how smart, caring,
+                        beautiful, lovely, cute, adorable, and honest you are😊 I
+                        love how you’re not afraid to speak your mind.
+                      </Typography>
+                      <Typography variant="body1" sx={{ marginTop: 2,fontFamily: "'Fresh Palm',cursive",
+                        fontSize: "1.2rem", }}>
+                        I love you so much, mi florecita preciosa😊❤️ I love you
+                        more than words can express. I can’t wait to make more
+                        memories with you😊❤️
+                      </Typography>
+                      <Typography variant="body1" sx={{ marginTop: 2,fontFamily: "'Fresh Palm',cursive",
+                        fontSize: "1.2rem", }}>
+                        You are the light of my life and the joy in my heart.
+                        Every moment with you is a treasure, and I cherish you
+                        more than words can say.
+                      </Typography>
+                      <Typography variant="body1" sx={{ marginTop: 2,fontFamily: "'Fresh Palm',cursive",
+                        fontSize: "1.2rem", }}>
+                        Ya se que a veces no soy bueno con las palabras pero quiero que
+                        sepas que te quiero mucho y que eres la mejor cosa que
+                        me ha pasado en mi vida.
+                      </Typography>
+                      <Typography variant="body1" sx={{ marginTop: 2,fontFamily: "'Fresh Palm',cursive",
+                        fontSize: "1.2rem", }}>
+                        I know I haven’t asked you out in person yet, and I know
+                        we haven’t had the chance, but I will when we have some
+                        time alone or on our date in the city. I hope my
+                        feelings for you have been clear, mi amorcita😊❤️ Te quiero
+                        mucho mi amor y que no se te olvide nunca.
+                      </Typography>
+                    </Typography>
+                    <Typography
+                      variant="body1"
+                      sx={{ marginTop: 2, marginLeft: -4,fontFamily: "'Shine in Valentine',cursive",
+                        fontSize: "1.2rem", }}
+                    >
+                      Love,
+                    </Typography>
+                    <Typography variant="body1" sx={{ marginTop: -0.5,fontFamily: "'Shine in Valentine',cursive",
+                        fontSize: "1.2rem", }}>
+                      Tu solecito
+                    </Typography>
+                    <Typography variant="body1" sx={{ marginTop: 2,fontFamily: "'Fresh Palm',cursive",
+                        fontSize: "1.2rem", }}>
+                      P.S. I hope you like this little surprise. I love you so
+                      much, mi florecita preciosa❤️
+                    </Typography>
+                  </CardContent>
+                </Card>
               </Box>
             </motion.div>
           </div>
         )
       ) : (
+        <>
         <Typography variant="h6" sx={{ marginTop: 2, textAlign: "center" }}>
           ⏳ Oops! Tendras que esperar until {formattedRevealDate}😊⏳
         </Typography>
+        <Typography variant="h6" sx={{ marginTop: 2, textAlign: "center" }}>
+            Countdown: {formatTime(timeLeft)}
+          </Typography>
+        </>
+        
       )}
     </div>
   );

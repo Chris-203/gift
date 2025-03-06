@@ -39,8 +39,14 @@ body {
 }
 @font-face {
   font-family: "Hello Valentine";
-  src: url('/public/fonts/Hello\ Valentina.ttf');
+  src: url('/fonts/Hello\ Valentina.ttf') format('truetype');
 }
+
+@font-face {
+  font-family: "heart";
+  src: url('/fonts/josephsophia.ttf') format('truetype');
+}
+
 * {
   box-sizing: border-box;
   padding: 0;

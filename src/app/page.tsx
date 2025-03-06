@@ -314,16 +314,16 @@ export default function SecretLetter() {
                   display: "flex",
                   justifyContent: "center",
                   alignItems: "center",
-                  alignContent: "center",
+                  // alignContent: "center",
                   width: "100%",
-                  height: "100%",
+                  height: "auto",
                   // marginTop: 2,
                 }}
               >
                 <Card
                   sx={{
                     padding: 4,
-                    maxWidth: "100%",
+                    maxWidth: "90%",
                     textAlign: "center",
                     boxShadow: 3,
                     position: "relative",

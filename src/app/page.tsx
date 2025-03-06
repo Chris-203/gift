@@ -311,13 +311,13 @@ export default function SecretLetter() {
             >
               <Box
                 sx={{
-                  // display: "flex",
+                  display: "flex",
                   justifyContent: "center",
                   alignItems: "center",
                   // alignContent: "center",
                   width: "100%",
-                  height: "80%",
-                  marginLeft: 2.5,
+                  // height: "80%",
+                  // marginLeft: 2.5,
                   // position: "absolute",
                   // marginTop: 2,
                 }}

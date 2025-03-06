@@ -258,10 +258,18 @@ export default function SecretLetter() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1 }}
           >
+            <Box
+                sx={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  width: "100%",
+                }}
+              >
             <Card
               sx={{
-                padding: 4,
-                maxWidth: "100%",
+                padding: 2,
+                maxWidth: "90%",
                 textAlign: "center",
                 boxShadow: 3,
               }}
@@ -301,6 +309,7 @@ export default function SecretLetter() {
                 </Button>
               </CardContent>
             </Card>
+            </Box>
           </motion.div>
         ) : (
           <div>
@@ -314,12 +323,7 @@ export default function SecretLetter() {
                   display: "flex",
                   justifyContent: "center",
                   alignItems: "center",
-                  // alignContent: "center",
                   width: "100%",
-                  // height: "80%",
-                  // marginLeft: 2.5,
-                  // position: "absolute",
-                  // marginTop: 2,
                 }}
               >
                 <Card
@@ -329,7 +333,6 @@ export default function SecretLetter() {
                     textAlign: "center",
                     boxShadow: 3,
                     position: "relative",
-                    // background: "rgba(0, 0, 0, 0.8)", // Black background with some transparency
                     borderRadius: "10px", // Optional: adds rounded corners to the card
                   }}
                 >

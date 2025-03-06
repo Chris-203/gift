@@ -40,7 +40,7 @@ export default function SecretLetter() {
     return () => clearInterval(interval);
   }, [revealDate]);
 
-  const formattedRevealDate = revealDate.toLocaleString(undefined, {
+  const formattedRevealDate = revealDate.toLocaleString("es-ES", {
     weekday: "long",
     year: "numeric",
     month: "long",
@@ -49,7 +49,7 @@ export default function SecretLetter() {
     minute: "2-digit",
     // second: "2-digit",
     hour12: true, // Ensures AM/PM format
-  });
+  }).replace("a. m.", "A. M.").replace("p. m.", "P. M.");
 
   const formatTime = (time: number) => {
     const days = Math.floor(time / (1000 * 60 * 60 * 24));
@@ -476,7 +476,7 @@ export default function SecretLetter() {
       ) : (
         <>
           <Typography variant="h6" sx={{ marginTop: 2, textAlign: "center", fontFamily: "'Fresh Palm',cursive" }}>
-            ⏳ Oops! Tendras que esperar until {formattedRevealDate}😊⏳
+            ⏳ Oops! Tendras que esperar hasta el {formattedRevealDate}😊⏳
           </Typography>
           <Typography variant="h6" sx={{ marginTop: 2, textAlign: "center", fontFamily: "'Fresh Palm',cursive" }}>
             Countdown: {formatTime(timeLeft)}

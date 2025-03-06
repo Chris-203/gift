@@ -23,7 +23,24 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+@font-face {
+  font-family: "Shine in Valentine";
+  src: url("/fonts/Shine \In \Valentine.ttf") format("truetype");
+}
 
+@font-face {
+  font-family: "California Signature";
+  src: url("/fonts/Callifornia\ Signature.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Fresh Palm";
+  src: url('/fonts/Fresh\ Palm.otf') format('opentype');
+}
+@font-face {
+  font-family: "Hello Valentine";
+  src: url('/public/fonts/Hello\ Valentina.ttf');
+}
 * {
   box-sizing: border-box;
   padding: 0;

@@ -18,7 +18,7 @@ export default function SecretLetter() {
   const [isTimeReached, setIsTimeReached] = useState(false);
   const [isNext, setIsNext] = useState(false);
   const [timeLeft, setTimeLeft] = useState(0);
-  const revealDate = useMemo(() => new Date("2025-03-07T00:00:00"), []);
+  const revealDate = useMemo(() => new Date("2025-03-01T00:00:00"), []);
 
   useEffect(() => {
     const checkTime = () => {
@@ -392,14 +392,14 @@ export default function SecretLetter() {
                     </Typography>
                     <Typography
                       variant="body1"
-                      sx={{ marginTop: 2, marginLeft: -4,fontFamily: "'Shine in Valentine',cursive",
+                      sx={{ marginTop: 2, marginLeft: -6,fontFamily: "'Shine in Valentine',cursive",
                         fontSize: "1.2rem", }}
                     >
                       Love,
                     </Typography>
                     <Typography variant="body1" sx={{ marginTop: -0.5,fontFamily: "'Shine in Valentine',cursive",
                         fontSize: "1.2rem", }}>
-                      Tu solecito
+                      Tu solecito☀️
                     </Typography>
                     <Typography variant="body1" sx={{ marginTop: 2,fontFamily: "'Fresh Palm',cursive",
                         fontSize: "1.2rem", }}>

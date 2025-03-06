@@ -13,8 +13,8 @@ import { motion } from "framer-motion";
 
 export default function SecretLetter() {
   const [answer, setAnswer] = useState("");
-  const [isCorrect1, setIsCorrect1] = useState(false);
-  const [isCorrect2, setIsCorrect2] = useState(false);
+  const [isCorrect1, setIsCorrect1] = useState(true);
+  const [isCorrect2, setIsCorrect2] = useState(true);
   const [isTimeReached, setIsTimeReached] = useState(false);
   const [isNext, setIsNext] = useState(false);
   const [timeLeft, setTimeLeft] = useState(0);
@@ -311,13 +311,13 @@ export default function SecretLetter() {
             >
               <Box
                 sx={{
-                  display: "flex",
+                  display: "auto",
                   justifyContent: "center",
                   alignItems: "center",
                   // alignContent: "center",
                   width: "100%",
                   height: "auto",
-                  position: "absolute",
+                  // position: "absolute",
                   // marginTop: 2,
                 }}
               >

@@ -316,7 +316,7 @@ export default function SecretLetter() {
                   alignItems: "center",
                   alignContent: "center",
                   width: "100%",
-                  height: "100vh",
+                  height: "100%",
                   // marginTop: 2,
                 }}
               >
@@ -407,7 +407,7 @@ export default function SecretLetter() {
                     <Typography variant="body1" sx={{ marginTop: 2,fontFamily: "'Fresh Palm',cursive",
                         fontSize: "1.2rem", }}>
                       P.S. I hope you like this little surprise. I love you so
-                      much, mi florecita preciosa❤️
+                      much mi florecita preciosa❤️
                     </Typography>
                   </CardContent>
                 </Card>

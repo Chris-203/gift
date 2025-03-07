@@ -10,6 +10,8 @@ import {
   Box,
 } from "@mui/material";
 import { motion } from "framer-motion";
+import Snackbar from "@mui/material/Snackbar";
+import Alert from "@mui/material/Alert";
 
 export default function SecretLetter() {
   const [answer, setAnswer] = useState("");
@@ -18,6 +20,9 @@ export default function SecretLetter() {
   const [isTimeReached, setIsTimeReached] = useState(false);
   const [isNext, setIsNext] = useState(false);
   const [timeLeft, setTimeLeft] = useState(0);
+  const [snackbarOpen, setSnackbarOpen] = useState(false);
+  const [snackbarMessage, setSnackbarMessage] = useState("");
+
   const revealDate = useMemo(() => new Date("2025-03-07T00:00:00"), []);
 
   useEffect(() => {
@@ -40,16 +45,19 @@ export default function SecretLetter() {
     return () => clearInterval(interval);
   }, [revealDate]);
 
-  const formattedRevealDate = revealDate.toLocaleString("es-ES", {
-    weekday: "long",
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-    hour: "2-digit",
-    minute: "2-digit",
-    // second: "2-digit",
-    hour12: true, // Ensures AM/PM format
-  }).replace("a. m.", "A. M.").replace("p. m.", "P. M.");
+  const formattedRevealDate = revealDate
+    .toLocaleString("es-ES", {
+      weekday: "long",
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+      // second: "2-digit",
+      hour12: true, // Ensures AM/PM format
+    })
+    .replace("a. m.", "A. M.")
+    .replace("p. m.", "P. M.");
 
   const formatTime = (time: number) => {
     const days = Math.floor(time / (1000 * 60 * 60 * 24));
@@ -62,19 +70,27 @@ export default function SecretLetter() {
   const handleSubmitFirst = () => {
     if (answer.toLowerCase().includes("solecito")) {
       setIsCorrect1(true);
-      setAnswer("");
+      setSnackbarMessage("¡Respuesta correcta! ☀️");
     } else {
       setIsCorrect1(false);
+      setSnackbarMessage("❌ Respuesta incorrecta");
     }
+    setSnackbarOpen(true);
+    setAnswer("");
   };
-
+  
   const handleSubmitSecond = () => {
     if (answer.toLowerCase().includes("florecita")) {
       setIsCorrect2(true);
+      setSnackbarMessage("¡Respuesta correcta! 🌸");
     } else {
       setIsCorrect2(false);
+      setSnackbarMessage("❌ Respuesta incorrecta");
     }
+    setSnackbarOpen(true);
+    setAnswer("");
   };
+  
 
   const handleNext = () => {
     setIsNext(true);
@@ -475,14 +491,57 @@ export default function SecretLetter() {
         )
       ) : (
         <>
-          <Typography variant="h6" sx={{ marginTop: 2, textAlign: "center", fontFamily: "'Fresh Palm',cursive" }}>
-            ⏳ Oops! Tendras que esperar hasta el {formattedRevealDate}😊⏳
+          <Typography
+            variant="h6"
+            sx={{
+              marginTop: 2,
+              textAlign: "center",
+              fontFamily: "'Fresh Palm',cursive",
+            }}
+          >
+            Congrats mi amor you did it!
+            <Typography
+              variant="h6"
+              sx={{
+                marginTop: 2,
+                textAlign: "center",
+                fontFamily: "'Fresh Palm',cursive",
+              }}
+            >
+              ⏳Ahora tendras que esperar hasta el {formattedRevealDate}😊⏳
+            </Typography>
           </Typography>
-          <Typography variant="h6" sx={{ marginTop: 2, textAlign: "center", fontFamily: "'Fresh Palm',cursive" }}>
-            Countdown: {formatTime(timeLeft)}
+          <Typography
+            variant="h6"
+            sx={{
+              marginTop: 2,
+              textAlign: "center",
+              fontFamily: "'Fresh Palm',cursive",
+            }}
+          >
+            Aparecerá en: {formatTime(timeLeft)}
           </Typography>
         </>
       )}
+      <Snackbar
+  open={snackbarOpen}
+  autoHideDuration={2000}
+  onClose={() => setSnackbarOpen(false)}
+  anchorOrigin={{ vertical: "bottom", horizontal: "center" }} // Centered at bottom
+>
+  <Alert
+    onClose={() => setSnackbarOpen(false)}
+    severity={snackbarMessage.includes("incorrecta") ? "error" : "success"}
+    sx={{
+      fontSize: "1.2rem",
+      fontFamily: "'Fresh Palm', cursive",
+      textAlign: "center",
+    }}
+  >
+    {snackbarMessage}
+  </Alert>
+</Snackbar>
+
     </div>
   );
 }
